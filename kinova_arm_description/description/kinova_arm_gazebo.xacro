@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="robot">    
     <gazebo>
-        <plugin name="gazebo_ros2_control" filename="libgazebo_ros2_control.so">
+        <plugin name="gz_ros2_control::GazeboSimROS2ControlPlugin" filename="libgz_ros2_control-system.so">
             <parameters>$(find kinova_arm_moveit_config)/config/ros2_controllers.yaml</parameters>
         </plugin>   
     </gazebo>
     
-    <gazebo reference="kinova_camera">
+    <!-- <gazebo reference="kinova_camera">
         <sensor type="depth" name="arm_camera">
             <pose>0.06 0.05 0 1.57 0 1.57</pose>
             <visualize>true</visualize>
@@ -27,5 +27,5 @@
             <frame_name>kinova_camera_optical_frame</frame_name>
             </plugin>
         </sensor>
-    </gazebo>
+    </gazebo> -->
 </robot>

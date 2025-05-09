@@ -79,18 +79,17 @@ def generate_launch_description():
     # )
 
 
-    # Launch Gazebo with ROS integration
     gazebo_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
-            os.path.join(get_package_share_directory('gazebo_ros'), 'launch', 'gazebo.launch.py')
-        )
+            os.path.join(get_package_share_directory('ros_gz_sim'), 'launch', 'gz_sim.launch.py')),
+        launch_arguments={'gz_args': '-r empty.sdf'}.items(),
     )
 
     # Spawn robot entity in Gazebo
     spawn_entity = Node(
-        package='gazebo_ros',
-        executable='spawn_entity.py',
-        arguments=['-topic', 'robot_description', '-entity', 'kinova_arm'],
+        package='ros_gz_sim',
+        executable='create',
+        arguments=['-topic', '/robot_description', '-name', 'kinova_arm'],
         output='screen'
     )
 
