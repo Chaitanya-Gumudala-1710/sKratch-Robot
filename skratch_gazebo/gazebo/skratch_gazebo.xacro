@@ -1,6 +1,5 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="robot">
-
     <gazebo>
         <plugin name="object_controller" filename="libgazebo_ros_planar_move.so">
             <ros>
@@ -12,10 +11,9 @@
             <odometryFrame>odom</odometryFrame>
             <robotBaseFrame>base_link</robotBaseFrame>
             <odometryRate>20.0</odometryRate>
-            <publishOdomTf>true</publishOdomTf> 
+            <publishOdomTf>true</publishOdomTf>
         </plugin>
     </gazebo>
-
     <gazebo reference="front_lidar">
         <sensor type="ray" name="front_lidar">
             <pose>0 0 0 0 0</pose>
@@ -45,7 +43,6 @@
             </plugin>
         </sensor>
     </gazebo>
-
     <gazebo reference="rear_lidar">
         <sensor type="ray" name="rear_lidar">
             <pose>0 0 0 0 0</pose>
@@ -57,7 +54,7 @@
                         <samples>360</samples>
                         <resolution>1</resolution>
                         <min_angle>5.2</min_angle>
-		                <max_angle>1.2</max_angle>
+                        <max_angle>1.2</max_angle>
                     </horizontal>
                 </scan>
                 <range>
